@@ -1,0 +1,80 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <body id="myPage" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"></body>
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <!-- Navbar -->
+        <div class="w3-top">
+            <div class="w3-bar w3-theme-d2 w3-left-align">
+                <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+                <a href="Homepage.aspx" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>SmartTravel</a>
+                <asp:LinkButton ID="btnUser" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" runat="server" Text="" OnClick="btnUser_Click"></asp:LinkButton>
+                <asp:LinkButton ID="btnLogin" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-teal" OnClick="btnLogin_Click" Text="Login" CausesValidation="False" runat="server"></asp:LinkButton>
+            </div>
+
+			<!-- Navbar on small screens -->
+            <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+                <asp:LinkButton ID="btnDiscount" class="w3-bar-item w3-button" runat="server" Text="Manage Discount Coupon" OnClick="btnDiscount_Click"></asp:LinkButton>
+                <asp:LinkButton ID="btnReview" class="w3-bar-item w3-button" runat="server" Text="Manage Review" OnClick="btnReview_Click"></asp:LinkButton>
+                <asp:LinkButton ID="btnDividend" class="w3-bar-item w3-button" runat="server" Text="Manage Dividend" OnClick="btnDividend_Click"></asp:LinkButton>
+            </div>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- Footer -->
+            <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+                <br />
+                <br />
+                <p>
+                    © Copyright SmartTravel. All Rights Reserved
+                <br />
+                    <a href="AboutPage.aspx" target="_blank">Designed by Team SmartTravel</a>
+                </p>
+                <div style="position: relative; bottom: 100px; z-index: 1;" class="w3-tooltip w3-right">
+                    <span class="w3-text w3-padding w3-teal w3-hide-small">Go To Top</span>
+                    <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
+                        <i class="fa fa-chevron-circle-up"></i></span></a>
+                </div>
+            </footer>
+        </div>
+    </form>
+    <script>
+        // Script for side navigation
+        function w3_open() {
+            var x = document.getElementById("mySidebar");
+            x.style.width = "300px";
+            x.style.paddingTop = "10%";
+            x.style.display = "block";
+        }
+
+        // Close side navigation
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+        }
+
+        // Used to toggle the menu on smaller screens when clicking on the menu button
+        function openNav() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+</body>
+</html>
